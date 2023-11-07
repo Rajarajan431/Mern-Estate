@@ -20,7 +20,8 @@ export default function SignUp() {
     
     try {
       setLoading(true)
-  
+     
+      //Posting the data to the server
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: {
@@ -30,11 +31,15 @@ export default function SignUp() {
       });
 
       const data = await res.json();
+      
+      //Failed to load the data
       if(data.success == false){
         setLoading(false)
         setError(data.message)
         return
       }
+
+      //No Errors found
       setLoading(false);
       setError(null)
       navigate('/sign-in')
