@@ -59,7 +59,7 @@ export default function SignIn() {
         <input type="text" placeholder='Email' 
             className='border p-3 rounded-lg' id='email'onClick={handleChange} />
 
-          <input type="text" placeholder='Password' 
+          <input type="password" placeholder='Password' 
             className='border p-3 rounded-lg' id='password'onClick={handleChange} />
 
           <button disabled={loading} className='bg-slate-700 text-white p-3 
