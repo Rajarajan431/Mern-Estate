@@ -59,11 +59,12 @@ export default function SignUp() {
           <input type="text" placeholder='Username' 
             className='border p-3 rounded-lg' id='username'onClick={handleChange} />
           
-          <input type="password" placeholder='Password' 
-            className='border p-3 rounded-lg' id='password'onClick={handleChange} />
-          
           <input type="text" placeholder='Email' 
             className='border p-3 rounded-lg' id='email'onClick={handleChange} />
+
+          <input type="password" placeholder='Password' 
+            className='border p-3 rounded-lg' id='password'onClick={handleChange} />
+
 
           <button disabled={loading} className='bg-slate-700 text-white p-3 
             rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>
