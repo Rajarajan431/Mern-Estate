@@ -272,16 +272,22 @@ export default function Profile() {
             </Link>
 
             <div className="flex flex-col items-center gap-1 ">
+              
               <button
                 onClick={() => handleListingDelete(listing._id)} 
-                className='border p-2 w-full bg-red-700 text-white 
+                className='border p-1 w-full bg-red-700 text-white 
                 hover:opacity-75 rounded-lg'>
                     Delete
                 </button>
-              <button 
-                className='border p-2 w-full bg-green-700 text-white 
-                hover:opacity-75 rounded-lg'>
-                Edit</button>
+             
+              <Link to={`/update-listing/${listing._id}`} className='w-full'>
+                <button 
+                  className='p-1 w-full bg-green-700 text-white 
+                  hover:opacity-75 rounded-lg'>
+                  Edit
+                </button>
+              </Link>
+            
             </div>
           
           </div>
