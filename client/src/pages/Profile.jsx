@@ -154,6 +154,26 @@ export default function Profile() {
     }
   }
 
+  const handleListingDelete = async (listingId) => {
+    try {
+      const res = await fetch(`/api/listing/delete/${listingId}` , {
+        method: 'DELETE',
+      });
+
+      const data = await res.json()
+  
+      if(data.success === false) {
+        console.log(data.message);
+        return
+      }
+
+      setUserListings((prev) => prev.filter((listing) => listing._id !== listingId))
+
+    } catch (error) {
+      console.log(error.message);
+    }
+  } 
+
   return (
     <div className='p-3 max-w-lg mx-auto'>
       
@@ -252,10 +272,14 @@ export default function Profile() {
             </Link>
 
             <div className="flex flex-col items-center gap-1 ">
-              <button className='border p-2 w-full bg-red-700 text-white 
+              <button
+                onClick={() => handleListingDelete(listing._id)} 
+                className='border p-2 w-full bg-red-700 text-white 
                 hover:opacity-75 rounded-lg'>
-                Delete</button>
-              <button className='border p-2 w-full bg-green-700 text-white 
+                    Delete
+                </button>
+              <button 
+                className='border p-2 w-full bg-green-700 text-white 
                 hover:opacity-75 rounded-lg'>
                 Edit</button>
             </div>
