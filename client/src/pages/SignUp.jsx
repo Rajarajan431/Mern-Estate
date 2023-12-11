@@ -8,6 +8,7 @@ export default function SignUp() {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
+  
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -44,6 +45,7 @@ export default function SignUp() {
       setLoading(false);
       setError(null)
       navigate('/sign-in')
+      
     } catch (error) {
       setLoading(false)
       setError(error.message)
@@ -57,13 +59,13 @@ export default function SignUp() {
         <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
 
           <input type="text" placeholder='Username' 
-            className='border p-3 rounded-lg' id='username'onClick={handleChange} />
+            className='border p-3 rounded-lg' id='username'onChange={handleChange} />
           
           <input type="text" placeholder='Email' 
-            className='border p-3 rounded-lg' id='email'onClick={handleChange} />
+            className='border p-3 rounded-lg' id='email'onChange={handleChange} />
 
           <input type="password" placeholder='Password' 
-            className='border p-3 rounded-lg' id='password'onClick={handleChange} />
+            className='border p-3 rounded-lg' id='password'onChange={handleChange} />
 
 
           <button disabled={loading} className='bg-slate-700 text-white p-3 
